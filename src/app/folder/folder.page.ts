@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-folder',
@@ -7,12 +6,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  public folder: string;
+ 
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 2,
+    speed: 400
+  };
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
+
+  public appPages = [
+    {title: 'Analisis', url: '/folder/Analisis', icon: 'cellular'},
+    { title: 'Proyecto', url: '/folder/Proyecto', icon: 'information-circle' },
+    { title: 'Registros', url: '/folder/Registros', icon: 'bookmark' },
+    { title: 'Configuracion', url: '/folder/Configuracion', icon: 'settings' },
+  ];
 
 }

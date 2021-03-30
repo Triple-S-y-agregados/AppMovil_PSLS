@@ -5,12 +5,8 @@ import { FolderPage } from './folder.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: FolderPage
-  },
-  {
     path: 'Inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    component: FolderPage
   },
   {
     path: 'Configuracion',
