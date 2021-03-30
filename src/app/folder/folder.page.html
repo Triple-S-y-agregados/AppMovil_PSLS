@@ -1,20 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title><b>{{ folder}}</b></ion-title>
+    <ion-title class="ion-text-center"><b>Panel Seguidor de Luz Solar</b></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
+  <div id="bienvenida" style="margin: 20px;">
+    Bienvenidos
   </div>
+  <ion-slides [options]="slideOpts">
+    <ion-slide class="slide" *ngFor="let p of appPages;">
+      <img class="img-menu" src="https://img.freepik.com/foto-gratis/superficies-pizarra_34805-10.jpg?size=626&ext=jpg">
+      <ion-text class="text-img"><b>{{p.title}}</b></ion-text>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>

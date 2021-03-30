@@ -26,3 +26,28 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+
+.slide{
+  width:140px;
+  height:90px;
+}
+
+.swiper-slide img{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  z-index: 0;
+}
+
+.img-menu{
+  border-radius: 12px;
+  width: 140px;
+  z-index: 0;
+}
+
+.text-img{
+  z-index: 1;
+  position: absolute;
+  color: white;
+}
