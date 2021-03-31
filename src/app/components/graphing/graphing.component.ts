@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 
 @Component({
   selector: 'graph-component',
@@ -8,48 +10,34 @@ import { Chart } from 'chart.js';
 })
 export class GraphingComponent implements OnInit {
   
-  public chart: Chart;
+  lightLevels: ChartDataSets[] = []
 
-  constructor() { }
+  chartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        type: 'linear',
+        position: 'bottom',
+        ticks: {stepSize: 1}
+      }]
+    }
+  };
+
+  constructor( private dataTransfer : DataTransferService ) { }
 
   ngOnInit() {
-    let data = {
-      datasets: [{
-          barPercentage: 0.5,
-          barThickness: 6,
-          maxBarThickness: 8,
-          minBarLength: 2,
-          data: [10, 20, 30, 40, 50, 60, 70]
-      }]
-    };
-    let options = {
-      scales: {
-          xAxes: [{
-              gridLines: {
-                  offsetGridLines: true
-              }
-          }]
-      }
-  };
-    this.createChart(data, options);
-  }
+    let data = [
+      {x: 1, y: 1}, {x: 2, y: 2},
+      {x: 3, y: 3}, {x: 4, y: 2},
+      {x: 5, y: 1},
+    ];
+    
+    this.lightLevels.push({
+      label: "Label", 
+      data: data
+    })
 
-  createChart( data, options ){
-    var canvas = <HTMLCanvasElement> document.getElementById('myChart');
-    var ctx = canvas.getContext('2d');
-    var chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45]
-      }]
-    },
-    options: { }
-    });
-  
-  }
+   }
+
+
 }
