@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartDataSets, ChartOptions } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { DataTransferService } from 'src/app/services/data-transfer.service';
 
@@ -10,17 +10,21 @@ import { DataTransferService } from 'src/app/services/data-transfer.service';
 })
 export class GraphingComponent implements OnInit {
   
+  chartType: ChartType = "line"
   lightLevels: ChartDataSets[] = []
 
   chartOptions: ChartOptions = {
-    responsive: true,
+    responsive: false,
+    maintainAspectRatio: true,
     scales: {
       xAxes: [{
+        labels: ["Hora"],
         type: 'linear',
         position: 'bottom',
         ticks: {stepSize: 1}
       }]
-    }
+    },
+    
   };
 
   constructor( private dataTransfer : DataTransferService ) { }
