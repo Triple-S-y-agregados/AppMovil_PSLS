@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatosPage implements OnInit {
 
+  intensidad = 93;
+  angulo1 = 180;
+  angulo2 = 90;
+
   constructor() { }
 
   ngOnInit() {

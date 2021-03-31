@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
- 
+
   slideOpts = {
     initialSlide: 0,
-    slidesPerView: 2,
-    speed: 400
+    speed: 400,
+    autoplay: true
   };
 
   constructor() { }
@@ -19,10 +19,30 @@ export class FolderPage implements OnInit {
   }
 
   public appPages = [
-    {title: 'Analisis', url: '/folder/Analisis', icon: 'cellular'},
-    { title: 'Proyecto', url: '/folder/Proyecto', icon: 'information-circle' },
-    { title: 'Registros', url: '/folder/Registros', icon: 'bookmark' },
-    { title: 'Configuracion', url: '/folder/Configuracion', icon: 'settings' },
+    {
+      title: 'Analisis',
+      url: '/folder/Analisis',
+      icon: 'cellular',
+      description: "Descripción de Analisis"
+    },
+    {
+      title: 'Proyecto',
+      url: '/folder/Proyecto',
+      icon: 'information-circle',
+      description: "Descripcion de Proyecto"
+    },
+    {
+      title: 'Registros',
+      url: '/folder/Registros',
+      icon: 'bookmark',
+      description: "Descripcion de Registros"
+    },
+    {
+      title: 'Configuracion',
+      url: '/folder/Configuracion',
+      icon: 'settings',
+      description: "Descripcion de Configuración"
+    },
   ];
 
 }

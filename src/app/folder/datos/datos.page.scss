@@ -1,0 +1,33 @@
+.pantalla{
+    max-width: 100%;
+    height: 175px;
+    margin: 15px;
+    z-index: 0;
+    background: linear-gradient(180deg, rgb(49, 100, 196) 0%, rgb(122, 188, 214) 100%);
+    color: white;
+    border-radius: 12px;
+  }
+  
+  .intensidad-title{
+    color: white;
+    font-variant-caps: small-caps;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .intensidad{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin: -18px;
+}
+
+.angulos{
+    display: flex;
+    align-content: center;
+    margin-top: 25px;
+}
+
+#angulo{
+    margin: 0 auto;
+}

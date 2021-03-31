@@ -1,18 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title class="ion-text-center"><b>Panel Seguidor de Luz Solar</b></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="bienvenida" style="margin: 20px;">
-    Bienvenidos
+    
+  <ion-card class="inicio">
+    <ion-card-header>
+      <ion-card-title class="text-title"> Bienvenidos </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text class="text-content">Panel Seguidor de Luz Solar</ion-text>
+      <br>
+      <ion-text>Proyecto de Microprocesadores y Sistemas Embebidos</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <div id="menu-inicio">
+    <ion-card class="tarjetas" *ngFor="let p of appPages;">
+      <ion-item>
+        <ion-icon color="dark" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+      <ion-card-title>{{p.title}}</ion-card-title>
+      <ion-button fill="outline" color="dark" slot="end" [routerLink]="[p.url]">Ir</ion-button>
+      </ion-item>
+      <ion-card-content>
+        <p>{{p.description}}</p>
+      </ion-card-content>
+    </ion-card>
   </div>
-  <ion-slides [options]="slideOpts">
-    <ion-slide class="slide" *ngFor="let p of appPages;">
-      <img class="img-menu" src="https://img.freepik.com/foto-gratis/superficies-pizarra_34805-10.jpg?size=626&ext=jpg">
-      <ion-text class="text-img"><b>{{p.title}}</b></ion-text>
-    </ion-slide>
-  </ion-slides>
 
 </ion-content>

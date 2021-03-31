@@ -3,10 +3,23 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>datos</ion-title>
+    <ion-title>Analisis</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<graph-component></graph-component>
+  <div class="pantalla">
+    <br>
+    <p class="intensidad-title">Intensidad de Luz Solar</p>
+    <p class="intensidad">{{intensidad}} lumenes</p>
+    <br>
+    <div class="angulos">
+      <p id="angulo">Angulo 1: {{angulo1}}°</p>
+      <p id="angulo">Angulo 2: {{angulo2}}°</p>
+    </div>
+  </div>
+
+  <p>"Los datos usados son de prueba y van a cambiar" -Shotem</p> 
+  <graph-component></graph-component>
+
 </ion-content>
