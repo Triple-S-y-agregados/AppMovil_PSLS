@@ -23,12 +23,13 @@ export class DataTransferService {
 
   //#region Get Database Values
 
-  getLastN( n: number ){
+  getLastN( n: number ): IntensityData[] {
     let result: IntensityData[] = null;
     this.client.get( "http://" + this.ip +":" + this.port + "/read?num=" + n).subscribe(
       (data: IntensityData[])=>{result = data},
-      (error)=>{alert(error)}
+      (error)=>{console.error(error)}
     )
+    return result;
   }
 
   getFromOnward( datetime: string ) {
