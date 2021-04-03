@@ -15,7 +15,11 @@ export class ConfiguracionPage implements OnInit {
     private dtService: DataTransferService,
     private alertCtrl: AlertController ) { }
 
-  ngOnInit() { this.ip = this.dtService.getIP(); }
+  // Cookie format
+  // config = "{ \"manualMode\":false, \"ipAddress\":\"0.0.0.0\" }";
+  ngOnInit() { 
+    this.ip = this.dtService.getIP();
+  }
 
   saveIP(){
     console.log(this.ip)
