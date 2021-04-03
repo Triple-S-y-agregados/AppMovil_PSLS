@@ -14,9 +14,17 @@
       <ion-label>Modo Manual</ion-label>
       <ion-toggle slot="end" color="dark"></ion-toggle>
     </ion-item>
+    <ion-item> <!-- Sorry por el diseño tan pobre, puedes cambiar lo que quieras -->
+      <ion-label>Conección</ion-label>
+      <ion-input slot="end" color="dark" 
+        [(ngModel)]="ip">IP</ion-input>
+      <ion-button slot="end" fill="outline" color="dark"
+        (click)="saveIP()">Guardar IP</ion-button>
+    </ion-item>
     <ion-item>
       <ion-label>Registros</ion-label>
-      <ion-button fill="outline" color="danger">Borrar</ion-button>
+      <ion-button fill="outline" color="danger"
+        (click)="clearDB()">Borrar</ion-button>
     </ion-item>
   </ion-list>
     </div>
