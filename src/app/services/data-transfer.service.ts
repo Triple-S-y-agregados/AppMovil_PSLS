@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http'
 import { IntensityData } from '../classes/IntensityData';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataTransferService {
 
-  ip: string = "0.0.0.0"
+  ip: string = "172.23.16.1"
   port: string = "5000"
 
   constructor( private client: HttpClient ) {}
   //#region IP setter and getter
   setIP( new_ip: string ) {
-    console.log("Hello")
     this.ip = new_ip
     alert( "La IP se a cambiado exitosamente a: " + this.ip )
   }
@@ -21,21 +21,14 @@ export class DataTransferService {
   getIP( ) { return this.ip; }
   //#endregion
 
-  //#region Get Database Values
-
-  getLastN( n: number ): IntensityData[] {
-    let result: IntensityData[] = null;
-    this.client.get( "http://" + this.ip +":" + this.port + "/read?num=" + n).subscribe(
-      (data: IntensityData[])=>{result = data},
-      (error)=>{console.error(error)}
-    )
-    return result;
+  
+  getLastN( n: number ) {
+    return this.client.get( "http://" + this.ip +":" + this.port + "/read?num=" + n);
   }
 
   getFromOnward( datetime: string ) {
     throw "Not implemented"
   }
-  //#endregion
 
   clearDB(  ){
     let status :boolean = false
