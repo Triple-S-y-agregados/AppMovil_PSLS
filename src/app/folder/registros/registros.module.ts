@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { RegistrosPageRoutingModule } from './registros-routing.module';
 
 import { RegistrosPage } from './registros.page';
-import { GraphingComponent } from 'src/app/components/graphing/graphing.component'
 import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
@@ -18,6 +17,6 @@ import { ChartsModule } from 'ng2-charts';
     RegistrosPageRoutingModule,
     ChartsModule
   ],
-  declarations: [RegistrosPage, GraphingComponent]
+  declarations: [RegistrosPage]
 })
 export class RegistrosPageModule {}

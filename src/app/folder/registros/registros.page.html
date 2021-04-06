@@ -9,5 +9,15 @@
 
 <ion-content>
   <p>"Los datos usados son de prueba y van a cambiar" -Shotem</p> 
-  <graph-component></graph-component>
+  <ion-card>
+    <canvas baseChart width="600" 
+    [chartType]="chartType"
+    [legend]="true"
+    [datasets]="lightLevels"
+    [labels]="chartLabels"
+    [options]="chartOptions"></canvas>
+  </ion-card>
+  <div>
+    
+  </div>
 </ion-content>
