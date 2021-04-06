@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DataTransferService {
 
-  ip: string = "172.23.16.1"
+  ip: string = "192.168.1.77"
   port: string = "5000"
 
   constructor( private client: HttpClient ) {}
