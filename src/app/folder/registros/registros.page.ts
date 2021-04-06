@@ -27,12 +27,13 @@ export class RegistrosPage implements OnInit {
         labels: ["Tiempo"],
         type: 'linear',
         position: 'bottom',
-        ticks: {stepSize: 1, beginAtZero: true}
+        ticks: {stepSize: 1}
       }],
       yAxes: [{
         labels: ["Intensidad"],
         type:'linear',
         position: 'right',
+        ticks:{beginAtZero:true}
       }]
     },
     
@@ -52,15 +53,13 @@ export class RegistrosPage implements OnInit {
             {
               fill:true,
               borderColor: 'rgba(255,255,255,1)',
-              backgroundColor: 'rgba(255,255,255,0.75)',
+              backgroundColor: 'rgba(255,255,255,0.5)',
               label: "Test",
               data: this.intensityValues.map(
                 (v, i) => {
-                  console.log ( v.Intensity )
                   return { x: i, y: v.Intensity }
                 })
             }
-      console.log(this.lightLevels[0].data)
       },
       (error)=>{
         console.error(error)
