@@ -14,7 +14,7 @@ export class CookiesService {
     date.setTime(date.getTime() + daysToExpire * 24 * 60 * 60 * 1000);
     expires += date.toISOString();
 
-    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/;SameSite=Lax";
   }
 
   getCookie(cookieName : string) : string {
