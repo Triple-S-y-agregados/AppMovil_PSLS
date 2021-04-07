@@ -12,10 +12,9 @@ export class RegistrosPage implements OnInit {
 
   constructor( private dtService: DataTransferService ) { }
 
-
+  private foundData = false;
   private intensityValues:IntensityData[] = undefined;
-  private intensityValuesToday:IntensityData[] = undefined;
-
+  
   chartType: ChartType = "line"
   lightLevels: ChartDataSets[] = []
 
@@ -24,6 +23,7 @@ export class RegistrosPage implements OnInit {
     maintainAspectRatio: true,
     scales: {
       xAxes: [{
+        display: false,
         labels: ["Tiempo"],
         type: 'linear',
         position: 'bottom',
@@ -48,13 +48,13 @@ export class RegistrosPage implements OnInit {
     this.lightLevels.push()
     this.dtService.getLastN(24).subscribe(
       (data: IntensityData[])=>{
+        this.foundData = true;
         this.intensityValues = data;
         this.lightLevels[0] =
             {
               fill:true,
-              borderColor: 'rgba(255,255,255,1)',
-              backgroundColor: 'rgba(255,255,255,0.5)',
-              label: "Test",
+              pointBorderColor: 'none',
+              label: "Panel Solar",
               data: this.intensityValues.map(
                 (v, i) => {
                   return { x: i, y: v.Intensity }
@@ -62,6 +62,7 @@ export class RegistrosPage implements OnInit {
             }
       },
       (error)=>{
+        alert("No se pudo conectar a la API, verifique que la dirección ip sea correcta y que esta esté conectada")
         console.error(error)
       }
     )
