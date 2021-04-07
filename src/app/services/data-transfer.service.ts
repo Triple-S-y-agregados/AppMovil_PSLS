@@ -15,7 +15,6 @@ export class DataTransferService {
   //#region IP setter and getter
   setIP( new_ip: string ) {
     this.ip = new_ip
-    alert( "La IP se a cambiado exitosamente a: " + this.ip )
   }
   
   getIP( ) { return this.ip; }

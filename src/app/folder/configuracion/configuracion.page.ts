@@ -9,49 +9,46 @@ import { CookiesService } from 'src/app/services/cookie-service.service';
   styleUrls: ['./configuracion.page.scss'],
 })
 export class ConfiguracionPage implements OnInit {
-  @Input()
-  public ip: string;
-  public manualMode: boolean = false;
+  @Input() public ip: string;
+  @Input() public manualMode: boolean = false;
+  private pattern : RegExp = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
 
   constructor( 
     private dtService: DataTransferService,
-    private alertCtrl: AlertController, private cookies: CookiesService ) { }
+    private alertCtrl: AlertController, private cookies: CookiesService
+  ) { }
 
   // Cookie format
-  // config = "{ \"manualMode\":false, \"ipAddress\":\"0.0.0.0\" }";
-  ngOnInit() { 
-    this.ip = this.dtService.getIP();
-    this.modificarCookie();
-    let allCookies = document.cookie;
-    alert(allCookies);
-    this.leerCookie();
+  // config = "[Modo Manual (boolean->string)], [Dirección IP (string)]";
+  ngOnInit() {
+    let cookie = this.leerCookie();
+    this.ip = cookie.ip
+    this.manualMode = cookie.manualMode === "true"
   }
 
+  ngOnDestroy() { }
+
   modificarCookie(){
-    let config: string = 
-      //"manualMode:"+
-      this.manualMode+","+
-      //"ipAddress:"+
-      this.ip;
-    this.cookies.setCookie("config", config, 1);
+    let config: string = this.manualMode + "," + this.ip;
+    this.cookies.setCookie("config", config, 10);
   }
 
   leerCookie(){
     let config: string = this.cookies.getCookie("config");
     let data: string[] = config.split(",");
-    alert("Modo Manual: " + data[0] + "\nIP Address: " + data[1]);
+    return { "manualMode": data[0], "ip": data[1] }
   }
 
-  saveIP(){
-    console.log(this.ip)
-    if (/^\d+\.\d+\.\d+\.\d+$/.test(this.ip)){
+  saveConfig(){
+    if ( this.pattern.test(this.ip) ){
       this.dtService.setIP( this.ip );
+      this.modificarCookie();
     } else {
       alert("La IP no es válida")
     }
   }
 
-  async clearDB(){
+  async clearDB() {
     // Cuadro de confirmación
     const alert = await this.alertCtrl.create({
       header: "¿Seguro que desea continuar?",
@@ -65,7 +62,6 @@ export class ConfiguracionPage implements OnInit {
         },
       ]
     });
-
     await alert.present()
   }
 

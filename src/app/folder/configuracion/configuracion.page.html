@@ -12,14 +12,16 @@
     <ion-list>
     <ion-item>
       <ion-label>Modo Manual</ion-label>
-      <ion-toggle slot="end" color="dark"></ion-toggle>
+      <ion-toggle slot="end" color="dark" [(ngModel)]="manualMode"></ion-toggle>
     </ion-item>
     <ion-item> <!-- Sorry por el diseño tan pobre, puedes cambiar lo que quieras -->
       <ion-label>Conección</ion-label>
-      <ion-input slot="end" color="dark" 
-        [(ngModel)]="ip">IP</ion-input>
+      <ion-input slot="end" color="dark" [(ngModel)]="ip" [(pattern)]=pattern>IP</ion-input>
+    </ion-item>
+    <ion-item> <!-- Sorry por el diseño tan pobre, puedes cambiar lo que quieras -->
+      <ion-label>Guardar</ion-label>
       <ion-button slot="end" fill="outline" color="dark"
-        (click)="saveIP()">Guardar IP</ion-button>
+        (click)="saveConfig()">Guardar configuración</ion-button>
     </ion-item>
     <ion-item>
       <ion-label>Registros</ion-label>
