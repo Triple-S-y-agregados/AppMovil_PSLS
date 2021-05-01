@@ -20,7 +20,7 @@ export class FolderPage implements OnInit {
 
   public appPages = [
     {
-      title: 'Analisis',
+      title: 'Análisis',
       url: '/folder/Analisis',
       icon: 'cellular',
       description: "Descripción de Analisis"
@@ -38,7 +38,7 @@ export class FolderPage implements OnInit {
       description: "Descripcion de Registros"
     },
     {
-      title: 'Configuracion',
+      title: 'Configuración',
       url: '/folder/Configuracion',
       icon: 'settings',
       description: "Descripcion de Configuración"
