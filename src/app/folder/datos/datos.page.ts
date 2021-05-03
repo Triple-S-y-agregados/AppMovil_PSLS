@@ -8,7 +8,7 @@ import { DataTransferService } from 'src/app/services/data-transfer.service';
 })
 export class DatosPage implements OnInit {
 
-  intensidad = 93;
+  voltaje = 100;
   angulo1 = 180;
   angulo2 = 90;
   manualMode: boolean;

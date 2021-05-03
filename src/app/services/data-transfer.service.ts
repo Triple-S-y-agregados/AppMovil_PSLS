@@ -10,23 +10,23 @@ export class DataTransferService {
   port: string = "5000"
   manualMode: boolean = false;
 
-  constructor(private client: HttpClient, private cookies: CookiesService) { 
-    let config:string = this.cookies.getCookie("config")
-    if(config!=""){
+  constructor(private client: HttpClient, private cookies: CookiesService) {
+    let config: string = this.cookies.getCookie("config")
+    if (config != "") {
       let data = this.cookies.getCookie("config").split(",");
       this.setIP(data[1]);
-      if(data[0]=="true"){
+      if (data[0] == "true") {
         this.setManualMode(true);
-      }else{
+      } else {
         this.setManualMode(false);
       }
-    }else{
-      config  =
-      //"manualMode:"+
-      this.manualMode + "," +
-      //"ipAddress:"+
-      this.ip;
-    this.cookies.setCookie("config", config, 1);
+    } else {
+      config =
+        //"manualMode:"+
+        this.manualMode + "," +
+        //"ipAddress:"+
+        this.ip;
+      this.cookies.setCookie("config", config, 1);
     }
   }
   //#region IP setter and getter
@@ -37,7 +37,7 @@ export class DataTransferService {
   }
 
   getIP() {
-      return this.ip;
+    return this.ip;
   }
   //#endregion
 

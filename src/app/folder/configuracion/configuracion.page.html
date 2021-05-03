@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title>Configuración</ion-title>
   </ion-toolbar>
@@ -9,45 +9,44 @@
 
 <ion-content>
 
-  <ion-list lines="none" style="margin: 5px;">
+  <ion-list lines="none" style="margin: 30px 10px 0px 10px;">
 
-    <ion-item-divider class="divisor">
+    <ion-item-divider>
       <ion-label>
         Modo Manual
       </ion-label>
     </ion-item-divider>
 
-    <ion-item style="margin-bottom: 10px;">
+    <ion-item>
       <ion-label>Joystick</ion-label>
-      <ion-toggle [(ngModel)]="manualMode" slot="end" color="dark" (ionChange)="saveManualMode()"></ion-toggle>
+      <ion-toggle [(ngModel)]="manualMode" slot="end" color="tertiary" (ionChange)="saveManualMode()"></ion-toggle>
     </ion-item>
 
-    <ion-item-divider class="divisor">
+    <ion-item-divider>
       <ion-label>
         Conexión
       </ion-label>
       <div slot="end" style="margin: 0px 10px;">
-        <ion-button fill="outline" color="medium" (click)="saveIP()">Guardar</ion-button>
-        <ion-button fill="outline" color="medium" (click)="reset()">Reset</ion-button>
+        <ion-button fill="outline" color="primary" (click)="saveIP()">Guardar</ion-button>
+        <ion-button fill="outline" color="secondary" (click)="reset()">Reset</ion-button>
       </div>
     </ion-item-divider>
 
-    <ion-item style="margin-bottom: 10px;">
+    <ion-item>
       <ion-label >Dirección IP</ion-label>
       <ion-input slot="end" color="dark" [(ngModel)]="ip" (ionInput)="verificar()"></ion-input>
     </ion-item>
 
-    <ion-item-divider class="divisor">
+    <ion-item-divider>
       <ion-label>
         Base de Datos
       </ion-label>
     </ion-item-divider>
 
-    <ion-item style="margin-bottom: 10px;">
+    <ion-item>
       <ion-label>Registros</ion-label>
       <ion-button slot="end" fill="outline" color="danger" (click)="clearDB()">Borrar</ion-button>
     </ion-item>
-    
 
   </ion-list>
 </ion-content>

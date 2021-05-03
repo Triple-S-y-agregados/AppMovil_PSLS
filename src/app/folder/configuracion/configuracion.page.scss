@@ -1,6 +1,13 @@
-.divisor{
+
+
+ion-item-divider{
     font-size: 16px;
-    background-color: black;
-    color: white;
+    --background: linear-gradient(90deg, var(--ion-color-medium) 0%, black 100%);
     border-radius: 12px;
+    color: white;
+    font-weight: bolder;
+}
+
+ion-item{
+    margin-bottom: 10px;
 }

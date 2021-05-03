@@ -1,26 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Analisis</ion-title>
+    <ion-title>Análisis</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="pantalla">
-    <br>
-    <p class="intensidad-title">Intensidad de Luz Solar</p>
-    <p class="intensidad">{{intensidad}} lumenes</p>
-    <br>
-    <div class="angulos">
-      <p id="angulo">Angulo 1: {{angulo1}}°</p>
-      <p id="angulo">Angulo 2: {{angulo2}}°</p>
-    </div>
+  <div style="text-align: center; margin-top: 60px;">
+    <ion-icon name="flash-sharp" class="iconVoltaje"></ion-icon>
+    <h3 class="intensidad-title"><b>Voltaje</b></h3>
+    <h2 class="intensidad">{{voltaje}} V</h2>
   </div>
-  
-  <span *ngIf="manualMode">
-    Hola
-  </span>
-</ion-content>
 
+  <div class="angulos">
+    <p id="angulo"><b>Ángulo 1:</b> {{angulo1}}°</p>
+    <p id="angulo"><b>Ángulo 2:</b> {{angulo2}}°</p>
+  </div>
+
+  <span *ngIf="manualMode">
+    Aqui debe de ir los botones
+  </span>
+
+</ion-content>
