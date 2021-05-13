@@ -1,34 +1,52 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title>Configuración</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="modoManual">
-    <ion-list>
+
+  <ion-list lines="none" style="margin: 30px 10px 0px 10px;">
+
+    <ion-item-divider>
+      <ion-label>
+        Modo Manual
+      </ion-label>
+    </ion-item-divider>
+
     <ion-item>
-      <ion-label>Modo Manual</ion-label>
-      <ion-toggle slot="end" color="dark" [(ngModel)]="manualMode"></ion-toggle>
+      <ion-label>Joystick</ion-label>
+      <ion-toggle [(ngModel)]="manualMode" slot="end" color="tertiary" (ionChange)="saveManualMode()"></ion-toggle>
     </ion-item>
-    <ion-item> <!-- Sorry por el diseño tan pobre, puedes cambiar lo que quieras -->
-      <ion-label>Conección</ion-label>
-      <ion-input slot="end" color="dark" [(ngModel)]="ip" [(pattern)]=pattern>IP</ion-input>
+
+    <ion-item-divider>
+      <ion-label>
+        Conexión
+      </ion-label>
+      <div slot="end" style="margin: 0px 10px;">
+        <ion-button fill="outline" color="primary" (click)="saveIP()">Guardar</ion-button>
+        <ion-button fill="outline" color="secondary" (click)="reset()">Reset</ion-button>
+      </div>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-label >Dirección IP</ion-label>
+      <ion-input slot="end" color="dark" [(ngModel)]="ip" (ionInput)="verificar()"></ion-input>
     </ion-item>
-    <ion-item> <!-- Sorry por el diseño tan pobre, puedes cambiar lo que quieras -->
-      <ion-label>Guardar</ion-label>
-      <ion-button slot="end" fill="outline" color="dark"
-        (click)="saveConfig()">Guardar configuración</ion-button>
-    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>
+        Base de Datos
+      </ion-label>
+    </ion-item-divider>
+
     <ion-item>
       <ion-label>Registros</ion-label>
-      <ion-button fill="outline" color="danger"
-        (click)="clearDB()">Borrar</ion-button>
+      <ion-button slot="end" fill="outline" color="danger" (click)="clearDB()">Borrar</ion-button>
     </ion-item>
+
   </ion-list>
-    </div>
-  
 </ion-content>

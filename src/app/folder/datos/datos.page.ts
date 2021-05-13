@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 
 @Component({
   selector: 'app-datos',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatosPage implements OnInit {
 
-  intensidad = 93;
+  voltaje = 100;
   angulo1 = 180;
   angulo2 = 90;
+  manualMode: boolean;
 
-  constructor() { }
+  constructor(private dtService: DataTransferService) { }
 
   ngOnInit() {
+    this.manualMode = this.dtService.getManualMode();
   }
 
 }

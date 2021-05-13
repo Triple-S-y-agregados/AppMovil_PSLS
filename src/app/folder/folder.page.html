@@ -1,36 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="ion-text-center"><b>Panel Seguidor de Luz Solar</b></ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    
-  <ion-card class="inicio">
-    <ion-card-header>
-      <ion-card-title class="text-title"> Bienvenidos </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-text class="text-content">Panel Seguidor de Luz Solar</ion-text>
-      <br>
-      <ion-text>Proyecto de Microprocesadores y Sistemas Embebidos</ion-text>
-    </ion-card-content>
-  </ion-card>
 
-  <div id="menu-inicio">
-    <ion-card class="tarjetas" *ngFor="let p of appPages;">
-      <ion-item>
-        <ion-icon color="dark" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-      <ion-card-title>{{p.title}}</ion-card-title>
-      <ion-button fill="outline" color="dark" slot="end" [routerLink]="[p.url]">Ir</ion-button>
+  <div id="Titulo" style="text-align: center;">
+    <ion-icon name="sunny" class="iconTittle"></ion-icon>
+    <h3>Panel Seguidor de Luz Solar</h3>
+  </div>
+
+  <div>
+    <ion-list lines="none">
+      <ion-item *ngFor="let page of pages" [routerLink]="[page.url]" detail>
+        <ion-icon [name]="page.icon" class="iconPage"></ion-icon>
+        <ion-label>
+          {{page.title}}
+        </ion-label>
       </ion-item>
-      <ion-card-content>
-        <p>{{p.description}}</p>
-      </ion-card-content>
-    </ion-card>
+    </ion-list>
   </div>
 
 </ion-content>

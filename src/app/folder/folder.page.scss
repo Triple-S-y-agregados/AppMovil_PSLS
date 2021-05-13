@@ -27,31 +27,33 @@
   text-decoration: none;
 }
 
-.inicio{
-  max-width: 100%;
-  height: 165px;
-  margin: 15px;
-  z-index: 0;
-  background: linear-gradient(180deg, rgb(63, 60, 60) 0%, black 100%);
-  color: white;
+ion-content{
+  --ion-background-color: white;
+}
+
+ion-item{
+  --background: linear-gradient(180deg, gold 0%, goldenrod 100%);
+  margin: 0px 20px 10px 20px;
   border-radius: 12px;
 }
 
-.text-title{
-  color:gray;
-  font-variant-caps: small-caps;
-  font-size: 44px;
+ion-icon.iconTittle{
+  margin-top: 40px; 
+  margin-bottom: 5px;
+    font-size: 128px;
+    color: orange;
 }
 
-.text-content{
-  font-size: 18px;
+ion-icon.iconPage{
+  margin-right: 10px;
+  color:black;
 }
 
-.tarjetas{
-  margin: 20px;
-  box-shadow: 0px 1px 5px var(--ion-color-dark);
-  border-radius: 12px;
-  border: 10px;
+h3{
+  margin: 0px 20px 40px 20px;
+  text-align: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 38px;
+  font-weight: bold;
 }
-
 

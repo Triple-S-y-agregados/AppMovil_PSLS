@@ -6,21 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400,
-    autoplay: true
-  };
-
+  
   constructor() { }
 
   ngOnInit() {
   }
 
-  public appPages = [
+  public pages = [
     {
-      title: 'Analisis',
+      title: 'Análisis',
       url: '/folder/Analisis',
       icon: 'cellular',
       description: "Descripción de Analisis"
@@ -38,7 +32,7 @@ export class FolderPage implements OnInit {
       description: "Descripcion de Registros"
     },
     {
-      title: 'Configuracion',
+      title: 'Configuración',
       url: '/folder/Configuracion',
       icon: 'settings',
       description: "Descripcion de Configuración"
