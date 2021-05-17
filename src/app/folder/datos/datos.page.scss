@@ -1,32 +1,32 @@
 
- ion-content{
-   --ion-backgorud-color: white;
- }
+ion-content{
+  --ion-backgorud-color: white;
+}
 
  ion-icon.iconVoltaje{
   margin-top: 40px; 
-    font-size: 128px;
-    color: orange;
+  font-size: 128px;
+  color: orange;
 }
   
-  .intensidad-title{
-    font-variant-caps: small-caps;
-    font-size: 20px;
-    text-align: center;
-  }
+.intensidad-title{
+  font-variant-caps: small-caps;
+  font-size: 20px;
+  text-align: center;
+}
 
-  .intensidad{
-    text-align: center;
-    font-size: 80px;
-    margin: -18px;
+.intensidad {
+  text-align: center;
+  font-size: 80px;
+  margin: -18px;
 }
 
 .angulos{
-    display: flex;
-    align-content: center;
-    margin-top: 30px;
+  display: flex;
+  align-content: center;
+  margin-top: 30px;
 }
 
-#angulo{
+.angulo{
     margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType, ChartPoint } from 'chart.js';
-import { IntensityData } from 'src/app/classes/IntensityData';
+import { Record } from 'src/app/classes/Record';
 import { DataTransferService } from 'src/app/services/data-transfer.service'
 
 @Component({
@@ -12,8 +12,8 @@ export class RegistrosPage implements OnInit {
 
   constructor( private dtService: DataTransferService ) { }
 
-  private foundData = false;
-  private intensityValues:IntensityData[] = undefined;
+  private foundData:boolean = false;
+  private intensityValues:Record[] = undefined;
   
   chartType: ChartType = "line"
   lightLevels: ChartDataSets[] = []
@@ -30,16 +30,17 @@ export class RegistrosPage implements OnInit {
         ticks: {stepSize: 1}
       }],
       yAxes: [{
-        labels: ["Intensidad"],
+        labels: ["Voltaje"],
         type:'linear',
         position: 'right',
-        ticks:{beginAtZero:true}
+        ticks:{ beginAtZero:true }
       }]
     },
     
   };
 
   ngOnInit() {
+    this.foundData = false;
     this.getValues()
   }
 
@@ -47,7 +48,7 @@ export class RegistrosPage implements OnInit {
 
     this.lightLevels.push()
     this.dtService.getLastN(24).subscribe(
-      (data: IntensityData[])=>{
+      (data: Record[])=>{
         this.foundData = true;
         this.intensityValues = data;
         this.lightLevels[0] =
@@ -57,13 +58,13 @@ export class RegistrosPage implements OnInit {
               label: "Panel Solar",
               data: this.intensityValues.map(
                 (v, i) => {
-                  return { x: i, y: v.Intensity }
+                  return { x: i, y: v.voltage }
                 })
             }
       },
       (error)=>{
-        alert("No se pudo conectar a la API, verifique que la dirección ip sea correcta y que esta esté conectada")
-        console.error(error)
+        alert("No se pudo conectar a la API, verifique que la dirección ip sea correcta y que esta esté conectada");
+        console.error(error);
       }
     )
 

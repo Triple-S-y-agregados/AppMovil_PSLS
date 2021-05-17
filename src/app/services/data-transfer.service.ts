@@ -50,7 +50,7 @@ export class DataTransferService {
   }
 
   getLastN(n: number) {
-    return this.client.get("http://" + this.ip + ":" + this.port + "/read?num=" + n);
+    return this.client.get("http://" + this.ip + ":" + this.port + "/records/" + n);
   }
 
   getFromOnward(datetime: string) {
@@ -59,7 +59,7 @@ export class DataTransferService {
 
   clearDB() {
     let status: boolean = false
-    this.client.delete("http://" + this.ip + ":" + this.port + "/clear").subscribe(
+    this.client.delete("http://" + this.ip + ":" + this.port + "/records").subscribe(
       (data: any) => { status = data.Success },
       (error) => { status = false }
     )
