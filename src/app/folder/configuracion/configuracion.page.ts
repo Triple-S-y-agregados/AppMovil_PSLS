@@ -11,6 +11,7 @@ import { CookiesService } from 'src/app/services/cookie-service.service';
 export class ConfiguracionPage implements OnInit {
   @Input()
   public ip: string;
+  public port: number = 44388; // TODO: Add some methd to set the Port
   public manualMode: boolean;
 
   constructor(

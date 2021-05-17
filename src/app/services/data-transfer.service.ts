@@ -7,7 +7,7 @@ import { CookiesService } from './cookie-service.service';
 })
 export class DataTransferService {
   ip: string = "192.168.1.77"
-  port: string = "5000"
+  port: string = "44388"
   manualMode: boolean = false;
 
   constructor(private client: HttpClient, private cookies: CookiesService) {
@@ -38,6 +38,15 @@ export class DataTransferService {
 
   getIP() {
     return this.ip;
+  }
+
+  setPort(new_port: string) {
+    this.port = new_port
+    //alert( "La IP se a cambiado exitosamente a: " + this.ip )
+  }
+
+  getPort() {
+    return this.port;
   }
   //#endregion
 

@@ -1,5 +1,7 @@
 {
   "name": "AppMovil_PSLS",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
