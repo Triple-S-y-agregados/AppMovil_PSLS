@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataTransferService } from 'src/app/services/data-transfer.service'
-import { AlertController } from '@ionic/angular'
+import { AlertController, ToastController } from '@ionic/angular'
 import { CookiesService } from 'src/app/services/cookie-service.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class ConfiguracionPage implements OnInit {
 
   constructor(
     private dtService: DataTransferService,
-    private alertCtrl: AlertController, private cookies: CookiesService) { }
+    private alertCtrl: AlertController, private cookies: CookiesService,
+    private toastController: ToastController) { }
 
   // Cookie format
   // config = "{ \"manualMode\":false, \"ipAddress\":\"0.0.0.0\" }";
@@ -87,7 +88,12 @@ export class ConfiguracionPage implements OnInit {
       cssClass: 'my-custom-class',
       header: 'Dirección IP Aceptada',
       message: 'La IP se a cambiado exitosamente a: ' + ip,
-      buttons: ['Aceptar']
+      buttons: [{
+        text: 'Aceptar',
+        handler: ()=>{
+          this.presentToast("Dirección IP guardada");
+        }
+      }]
     });
 
     await alert.present();
@@ -146,6 +152,15 @@ export class ConfiguracionPage implements OnInit {
       ]
     });
     await alert.present()
+  }
+
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      cssClass: 'mensajes'
+    });
+    toast.present();
   }
 
 }
