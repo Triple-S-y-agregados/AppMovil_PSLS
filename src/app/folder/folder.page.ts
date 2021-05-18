@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SabiasquePage } from '../pages/sabiasque/sabiasque.page';
 
 @Component({
   selector: 'app-folder',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FolderPage implements OnInit {
   
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
   }
@@ -38,5 +40,13 @@ export class FolderPage implements OnInit {
       description: "Descripcion de Configuración"
     },
   ];
+
+  async abrirModal() {
+    const modal = await this.modalController.create({
+      component: SabiasquePage,
+      cssClass: 'my-custom-class',
+    });
+    return await modal.present();
+  }
 
 }

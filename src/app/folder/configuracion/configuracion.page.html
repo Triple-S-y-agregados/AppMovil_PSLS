@@ -13,17 +13,6 @@
 
     <ion-item-divider>
       <ion-label>
-        Modo Manual
-      </ion-label>
-    </ion-item-divider>
-
-    <ion-item>
-      <ion-label>Joystick</ion-label>
-      <ion-toggle [(ngModel)]="manualMode" slot="end" color="tertiary" (ionChange)="saveManualMode()"></ion-toggle>
-    </ion-item>
-
-    <ion-item-divider>
-      <ion-label>
         Conexión
       </ion-label>
       <div slot="end" style="margin: 0px 10px;">
@@ -34,12 +23,12 @@
 
     <ion-item>
       <ion-label >Dirección IP</ion-label>
-      <ion-input slot="end" color="dark" [(ngModel)]="ip" (ionInput)="verificar()" pattern="(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3,}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"></ion-input>
+      <ion-input slot="end" color="dark" [(ngModel)]="ip" pattern="(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3,}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label >Port</ion-label>
-      <ion-input slot="end" color="dark" [(ngModel)]="port" (ionInput)="verificar()"></ion-input>
+      <ion-input slot="end" color="dark" [(ngModel)]="port"></ion-input>
     </ion-item>
 
     <ion-item-divider>

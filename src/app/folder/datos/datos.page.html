@@ -4,6 +4,9 @@
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title>Análisis</ion-title>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -18,9 +21,5 @@
     <p class="angulo"><b>Ángulo 1:</b> {{angulo1}}°</p>
     <p class="angulo"><b>Ángulo 2:</b> {{angulo2}}°</p>
   </div>
-
-  <span *ngIf="manualMode">
-    Aqui deben de ir los botones
-  </span>
 
 </ion-content>

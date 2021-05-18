@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { ChartDataSets, ChartOptions, ChartType, ChartPoint } from 'chart.js';
 import { Record } from 'src/app/classes/Record';
 import { DataTransferService } from 'src/app/services/data-transfer.service'
@@ -10,7 +11,7 @@ import { DataTransferService } from 'src/app/services/data-transfer.service'
 })
 export class RegistrosPage implements OnInit {
 
-  constructor( private dtService: DataTransferService ) { }
+  constructor( private dtService: DataTransferService, private alertCtrl: AlertController) { }
 
   private foundData:boolean = false;
   private intensityValues:Record[] = undefined;
@@ -63,11 +64,24 @@ export class RegistrosPage implements OnInit {
             }
       },
       (error)=>{
-        alert("No se pudo conectar a la API, verifique que la dirección ip sea correcta y que esta esté conectada");
+        this.invalid();
         console.error(error);
       }
     )
 
+  }
+
+  async invalid() {
+    const alert = await this.alertCtrl.create({
+      header: 'Conexión Fallida',
+      message: 'No se pudo conectar a la API, verifique que la dirección IP sea correcta y que esta esté conectada',
+      buttons: ['Aceptar']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
 
 }

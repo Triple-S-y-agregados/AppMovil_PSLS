@@ -1,24 +1,29 @@
-ion-img.panelSolar{
-    margin: 20px 20px 20px 20px;
-    box-shadow: 1px 1px 10px black;
+ion-content{
+    text-align: center;
 }
 
-h2{
-    margin: 10px 20px 5px 20px;
+ion-icon.iconTittle{
+    margin-top: 20px; 
+      font-size: 128px;
+      color: gray;
+  }
+
+
+h3{
+    margin: 0px 20px 10px 20px;
     text-align: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 42px;
     font-weight: bold;
   }
 
-h3{
+  h4{
+    margin: 0px 20px 40px 20px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    font-weight: bolder;
-    color: black;
-    text-shadow: 1px 1px 2px goldenrod;
+    font-weight: bold;
   }
 
-p{
-    text-align: justify;
-}
+  
   

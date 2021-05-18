@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-button slot="start" fill="clear" style="margin:0px;" color="primary" routerLink="/folder/Proyecto">
+      <ion-icon name="arrow-back" style="font-size: 28px;"></ion-icon>
+    </ion-button>
+    <ion-title>Galería</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let imagen of imagenes; index as i">
+        <img class="galeria" src="assets/galeria/{{imagen}}" (click)="abrirModal(imagen, i)">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

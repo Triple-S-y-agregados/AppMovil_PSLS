@@ -8,22 +8,17 @@ import { CookiesService } from './cookie-service.service';
 export class DataTransferService {
   ip: string = "192.168.1.77"
   port: string = "44388"
-  manualMode: boolean = false;
 
   constructor(private client: HttpClient, private cookies: CookiesService) {
     let config: string = this.cookies.getCookie("config")
     if (config != "") {
       let data = this.cookies.getCookie("config").split(",");
       this.setIP(data[1]);
-      if (data[0] == "true") {
-        this.setManualMode(true);
-      } else {
-        this.setManualMode(false);
-      }
+      this.setPort(data[0]);
     } else {
       config =
         //"manualMode:"+
-        this.manualMode + "," +
+        this.port + "," +
         //"ipAddress:"+
         this.ip;
       this.cookies.setCookie("config", config, 1);
@@ -49,14 +44,6 @@ export class DataTransferService {
     return this.port;
   }
   //#endregion
-
-  setManualMode(aux: boolean) {
-    this.manualMode = aux;
-  }
-
-  getManualMode() {
-    return this.manualMode;
-  }
 
   getLastN(n: number) {
     return this.client.get("http://" + this.ip + ":" + this.port + "/records/" + n);
