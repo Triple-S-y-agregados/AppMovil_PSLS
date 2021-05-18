@@ -17,11 +17,17 @@ export class DatosPage implements OnInit {
   constructor(private dtService: DataTransferService, private alertCtrl: AlertController) { }
 
   ngOnInit() {
+    this.refresh()
+  }
+
+  refresh() {
+    console.log("refreshing")
     this.dtService.getLastN(1).subscribe(
       (data: Record[])=> {
         this.voltaje = data[0].voltage;
       },
       (error)=> {
+        console.error("A")
         this.invalid();
         console.error(error);
       }

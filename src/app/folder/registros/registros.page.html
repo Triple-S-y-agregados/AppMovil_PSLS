@@ -4,7 +4,7 @@
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title>Registros</ion-title> 
-    <ion-button slot="end" fill="clear">
+    <ion-button slot="end" fill="clear"  (click)="getValues()">
     <ion-icon name="refresh"></ion-icon>
   </ion-button>
   </ion-toolbar>
@@ -19,6 +19,7 @@
     [legend]="true"
     [datasets]="lightLevels"
     [labels]="chartLabels"
-    [options]="chartOptions"></canvas>
+    [options]="chartOptions" *ngIf="foundData"></canvas>
+    <ion-content *ngIf="!foundData">No se pudo conectar a la API...</ion-content>
   </ion-card>
 </ion-content>
