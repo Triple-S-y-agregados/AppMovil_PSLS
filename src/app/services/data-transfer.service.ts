@@ -6,7 +6,7 @@ import { CookiesService } from './cookie-service.service';
   providedIn: 'root'
 })
 export class DataTransferService {
-  ip: string = "192.168.1.77"
+  ip: string = "192.168.0.6"
   port: string = "44388"
 
   constructor(private client: HttpClient, private cookies: CookiesService) {
@@ -24,7 +24,7 @@ export class DataTransferService {
       this.cookies.setCookie("config", config, 1);
     }
   }
-  //#region IP setter and getter
+  //#region IP + Port setter and getter
 
   setIP(new_ip: string) {
     this.ip = new_ip
@@ -49,8 +49,8 @@ export class DataTransferService {
     return this.client.get("http://" + this.ip + ":" + this.port + "/records/" + n);
   }
 
-  getFromOnward(datetime: string) {
-    throw "Not implemented"
+  getAngles() {
+    return this.client.get("http://" + this.ip + ":" + this.port + "/angles");
   }
 
   clearDB() {

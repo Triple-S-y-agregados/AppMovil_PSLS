@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataTransferService } from 'src/app/services/data-transfer.service';
 import { Record } from 'src/app/classes/Record';
 import { AlertController } from '@ionic/angular';
+import { Angles } from 'src/app/classes/Angles';
 
 @Component({
   selector: 'app-datos',
@@ -11,8 +12,8 @@ import { AlertController } from '@ionic/angular';
 export class DatosPage implements OnInit {
 
   voltaje = NaN;
-  angulo1 = NaN;
-  angulo2 = NaN;
+  anguloH = NaN;
+  anguloV = NaN;
 
   constructor(private dtService: DataTransferService, private alertCtrl: AlertController) { }
 
@@ -29,9 +30,20 @@ export class DatosPage implements OnInit {
       (error)=> {
         console.error("A")
         this.invalid();
+        this.voltaje = NaN;
         console.error(error);
       }
     );
+    this.dtService.getAngles().subscribe(
+      (data:Angles)=> {
+        this.anguloH = data.horizontal
+        this.anguloV = data.vertical
+      },
+      (error)=> {
+        this.anguloH, this.anguloV = NaN, NaN;
+        console.error(error);
+      }
+    )
   }
 
   async invalid() {
